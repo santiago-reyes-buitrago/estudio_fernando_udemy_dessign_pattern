@@ -12,25 +12,38 @@ import { COLORS } from '../helpers/colors.ts';
 
 class DatabaseConnection {
   private static instance: DatabaseConnection;
-  private connected: boolean = false;
+  private connected: boolean;
 
   // Constructor privado para evitar instancias directas
-  private constructor() {}
+  private constructor() {
+      this.connected = false;
+  }
 
   // Método estático para obtener la instancia única
   public static getInstance(): DatabaseConnection {
+      if (!DatabaseConnection.instance) {
+          DatabaseConnection.instance = new DatabaseConnection();
+          console.log(`%cInstancia de Conexion Establecida`,COLORS.green)
+      }
+      return DatabaseConnection.instance;
+
     // Completar: implementar el patrón Singleton
-    throw new Error('Method not implemented.');
   }
 
   // Método para conectar a la base de datos
   public connect(): void {
-    // Completar: si no está conectado, mostrar mensaje de conexión
+      if (this.connected) {
+          console.log(`%c Conexion Anteriormente Establecida`,COLORS.blue)
+          return;
+      }
+      this.connected = true;
+      console.log(`%c Conexion Establecida`,COLORS.blue)
   }
 
   // Método para desconectar de la base de datos
   public disconnect(): void {
-    // Completar: desconectar y mostrar mensaje de desconexión
+      this.connected = false;
+      console.log(`%c Conexion Cerrada`,COLORS.yellow)
   }
 }
 
