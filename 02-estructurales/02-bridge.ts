@@ -20,9 +20,21 @@ class SwordAttack implements Ability {
     }
 }
 
+class AxeAttack implements Ability {
+    use(): void {
+        console.log('Ataca con hacha')
+    }
+}
+
 class MagicSpellAttack implements Ability {
     use(): void {
-        console.log('Ataca con hchizo magico')
+        console.log('Ataca con hechizo magico')
+    }
+}
+
+class FireballSpellAttack implements Ability {
+    use(): void {
+        console.log('Ataca con hechizo de bola de fuego')
     }
 }
 
@@ -45,3 +57,22 @@ class Warrior extends Character {
         this.abilities.use();
     }
 }
+
+class Mage extends Character {
+    override performAbilities(): void {
+        this.abilities.use();
+    }
+}
+
+function main(){
+    const warrior = new Warrior(new SwordAttack())
+    warrior.performAbilities()
+    warrior.setAbilities(new AxeAttack())
+    warrior.performAbilities()
+    const wizard = new Mage(new MagicSpellAttack())
+    wizard.performAbilities()
+    wizard.setAbilities(new FireballSpellAttack())
+    wizard.performAbilities()
+}
+
+main();
