@@ -7,7 +7,8 @@
  * * es decir, en tiempo de ejecución y no en tiempo de compilación.
  *
  */
-import {COLORS} from "../helpers/colors.ts";
+// @ts-ignore
+import { COLORS } from '../helpers/colors.ts';
 
 type language = 'es'|'en'|'fr';
 

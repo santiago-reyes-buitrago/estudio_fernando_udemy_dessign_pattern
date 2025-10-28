@@ -1,5 +1,3 @@
-import {COLORS} from '../helpers/colors.ts';
-
 /**
  * ! Patrón decorador
  * Es un patrón de diseño estructural que permite añadir
@@ -13,6 +11,9 @@ import {COLORS} from '../helpers/colors.ts';
  *
  * https://refactoring.guru/es/design-patterns/decorator
  */
+// @ts-ignore
+import { COLORS } from '../helpers/colors.ts';
+
 interface NotificationInterface {
     send(msg:string):void
 }

@@ -8,6 +8,7 @@
  * * objeto de configuración.
  */
 
+// @ts-ignore
 import { COLORS } from '../helpers/colors.ts';
 
 class DatabaseConnection {

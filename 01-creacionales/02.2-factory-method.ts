@@ -24,6 +24,7 @@
       el prompt para seleccionar el tipo de reporte.
  */
 
+// @ts-ignore
 import { COLORS } from '../helpers/colors.ts';
 
 // 1. Definir la interfaz Report

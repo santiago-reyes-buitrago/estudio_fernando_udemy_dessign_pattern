@@ -14,6 +14,7 @@
 //* [WARNING:2025-10-21:07] El uso de memoria está alto.
 //* [ERROR:2025-10-21:07] Error de conexión a la base de datos.
 
+// @ts-ignore
 import { COLORS } from '../helpers/colors.ts';
 
 function formatDate(date: Date): string {

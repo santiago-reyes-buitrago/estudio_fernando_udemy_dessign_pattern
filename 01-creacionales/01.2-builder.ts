@@ -11,6 +11,7 @@
  * * que lo componen.
  */
 
+// @ts-ignore
 import { COLORS } from '../helpers/colors.ts';
 
 //! Tarea: crear un QueryBuilder para construir consultas SQL

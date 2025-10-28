@@ -14,7 +14,8 @@
  *
  */
 
-import {COLORS} from '../helpers/colors.ts';
+// @ts-ignore
+import { COLORS } from '../helpers/colors.ts';
 
 // 1. Interfaz MenuComponent
 // Define el método `showDetails`, que implementarán los ítems y categorías de menú.

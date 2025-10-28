@@ -9,6 +9,7 @@
  *
  */
 
+// @ts-ignore
 import { COLORS } from '../helpers/colors.ts';
 
 // 1. Interfaz NotificationChannel

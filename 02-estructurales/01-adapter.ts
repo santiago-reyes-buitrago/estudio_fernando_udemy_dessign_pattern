@@ -10,7 +10,9 @@
  *
  * https://refactoring.guru/es/design-patterns/adapter
  */
+// @ts-ignore
 import {localLogger} from "./adapter-files/local-logger.ts";
+// @ts-ignore
 import {DenoLoggerAdapter} from "./adapter-files/logger-adapter.ts";
 
 

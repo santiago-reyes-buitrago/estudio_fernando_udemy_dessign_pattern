@@ -15,6 +15,7 @@
  haciendo cambios en el puntaje, nivel y nombre del jugador.
  */
 
+// @ts-ignore
 import { COLORS } from '../helpers/colors.ts';
 
 // 1. Clase Player inmutable

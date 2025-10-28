@@ -9,6 +9,7 @@
  *
  * https://refactoring.guru/es/design-patterns/bridge
  */
+// @ts-ignore
 import { COLORS } from '../helpers/colors.ts';
 
 // 1. Interfaz NotificationChannel

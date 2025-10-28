@@ -7,13 +7,14 @@
  * * la cantidad de memoria que utilizan.
  */
 
+// @ts-ignore
 import { COLORS } from '../helpers/colors.ts';
 
 // 1. Clase que representa el tipo de bala - BulletType (Flyweight)
 class BulletType {
-  private name: string;
-  private damage: number;
-  private color: string;
+  private readonly name: string;
+  private readonly damage: number;
+  private readonly color: string;
 
   constructor(name: string, damage: number, color: string) {
     this.name = name;
@@ -39,22 +40,25 @@ class BulletTypeFactory {
   private bulletTypes: Record<string, BulletType> = {};
 
   getBulletType(name: string, damage: number, color: string): BulletType {
-    // TODO: Implementar un método para obtener un tipo de bala
-    // Si no existe el tipo de bala, crearlo y guardarlo en la lista de tipos de bala
-    // Si existe el tipo de bala, devolverlo
+      name = name.toLowerCase();
+      color = color.toLowerCase();
+      if (!this.bulletTypes[`${name}-${damage}-${color}`]) {
+          console.log(`%cCreando nueva bala: ${name}-${damage}-${color}`,COLORS.red)
+          this.bulletTypes[`${name}-${damage}-${color}`] = new BulletType(name,damage,color)
+      }
+      return this.bulletTypes[`${name}-${damage}-${color}`]
 
     // TODO: El key, debería de ser un identificador único para cada tipo de bala
     // name-damage-color
 
-    throw new Error('Method not implemented.');
   }
 }
 
 // 3. Clase que representa una Bala - Bullet
 class Bullet {
-  private x: number;
-  private y: number;
-  private direction: number;
+  private readonly x: number;
+  private readonly y: number;
+  private readonly direction: number;
   private bulletType: BulletType;
 
   constructor(x: number, y: number, direction: number, bulletType: BulletType) {

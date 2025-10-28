@@ -11,6 +11,7 @@
  *
  */
 
+// @ts-ignore
 import { COLORS } from '../helpers/colors.ts';
 
 // 1. Interfaz Document
@@ -20,7 +21,7 @@ interface Document {
 
 // 2. Clase que representa el Documento Confidencial - ConfidentialDocument
 class ConfidentialDocument implements Document {
-  private content: string;
+  private readonly content: string;
 
   constructor(content: string) {
     this.content = content;
@@ -34,21 +35,31 @@ class ConfidentialDocument implements Document {
 // 3. Clase Proxy - DocumentProxy
 class DocumentProxy implements Document {
   private document: ConfidentialDocument;
+  private accessRoles: string[];
 
   // TODO: Implementar el constructor de la clase DocumentProxy
+    constructor(document: ConfidentialDocument,accessRoles?:string[]) {
+        this.document = document;
+        this.accessRoles = accessRoles ? accessRoles:['admin'];
+    }
 
   displayContent(user: User): void {
     // TODO: Implementar la lógica para verificar si el usuario tiene permisos
+      if (this.accessRoles.includes(user.getRole())){
+          console.log(`%cAcceso concedido usuario: ${user.getName()}`,COLORS.green)
+          return;
+      }
     // Sólo si es admin puede ver el contenido
     // Caso contrario, mostrar un mensaje de acceso denegado:
     // EJ: `%cAcceso denegado. ${user.getName()}, no tienes permisos suficientes para ver este documento.`,
+      console.log(`%cAcceso denegado. ${user.getName()}, no tienes permisos suficientes para ver este documento.`,COLORS.red)
   }
 }
 
 // 4. Clase que representa al Usuario - User
 class User {
-  private name: string;
-  private role: 'admin' | 'user';
+  private readonly name: string;
+  private readonly role: 'admin' | 'user';
 
   constructor(name: string, role: 'admin' | 'user') {
     this.name = name;

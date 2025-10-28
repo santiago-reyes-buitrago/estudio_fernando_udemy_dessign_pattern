@@ -6,7 +6,8 @@
  *  * Es útil para mantener un historial de estados en aplicaciones interactivas.
  *
  */
-import {COLORS} from "../helpers/colors.ts";
+// @ts-ignore
+import { COLORS } from '../helpers/colors.ts';
 
 class CodeEditorState {
     readonly content: string;

@@ -10,19 +10,19 @@
  * https://refactoring.guru/es/design-patterns/prototype
  */
 
-class Document {
+class DocumentClass {
     public title:string;
-    private content:string;
+    private readonly content:string;
     public author: string;
 
     constructor(title:string,content:string,author:string){
-        this.title =  title,
-        this.content = content,
-        this.author = author
+        this.title =  title;
+        this.content = content;
+        this.author = author;
     }
 
-    clone():Document {
-        return new Document(this.title,this.content,this.author);
+    clone():DocumentClass {
+        return new DocumentClass(this.title,this.content,this.author);
     }
 
     displayInfo(){
@@ -31,7 +31,7 @@ class Document {
 }
 
 const main = () => {
-    const document1 = new Document(`Cotizacion`,`Cotizacion formato uno`,`Santiago Reyes`)
+    const document1 = new DocumentClass(`Cotizacion`,`Cotizacion formato uno`,`Santiago Reyes`)
 
     const document2 = document1.clone();
     document2.title = 'Nueva Cotizacion'
