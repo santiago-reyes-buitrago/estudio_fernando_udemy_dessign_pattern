@@ -45,6 +45,7 @@ class DocumentProxy implements Document {
 
   displayContent(user: User): void {
     // TODO: Implementar la lógica para verificar si el usuario tiene permisos
+      // @ts-ignore
       if (this.accessRoles.includes(user.getRole())){
           console.log(`%cAcceso concedido usuario: ${user.getName()}`,COLORS.green)
           return;
