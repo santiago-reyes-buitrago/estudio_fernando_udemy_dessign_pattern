@@ -9,3 +9,59 @@
  *
  * https://refactoring.guru/es/design-patterns/mediator
  */
+// @ts-ignore
+import {COLORS} from "../helpers/colors.ts";
+
+class Chatroom {
+    private users:User[] = []
+    public title:string;
+
+    constructor(title:string) {
+        this.title = title;
+    }
+    addUser(user:User) {
+        this.users.push(user);
+    }
+
+    sendMessage(message:string,sender:User) {
+        for (const user of this.users.filter(user => user !== sender)) {
+            user.receiveMessage(message,sender)
+        }
+    }
+}
+
+class User {
+    private readonly username:string;
+    private chatroom:Chatroom;
+    constructor(username:string,chatroom:Chatroom) {
+        this.username = username;
+        this.chatroom = chatroom;
+        chatroom.addUser(this);
+    }
+    sendMessage(message:string) {
+        console.log(`%c${this.username} envia %c${message}`,COLORS.yellow,COLORS.green);
+        this.chatroom.sendMessage(message,this)
+    }
+
+    receiveMessage(message:string,sender:User) {
+        console.log(`%c${this.username} recibe de ${sender.username}:  %c${message}`,COLORS.blue,COLORS.white);
+    }
+}
+
+
+const main = () => {
+    const chatroom =  new Chatroom('Grupo de estudio');
+    const user1 = new User('Santiago Reyes',chatroom)
+    const user2 = new User('Sebastian Reyes',chatroom)
+    const user3 = new User('Daniel Mendoza',chatroom)
+    const user4 = new User('Pepito perez',chatroom)
+    const user5 = new User('Carlos Tobaque',chatroom)
+
+    user1.sendMessage('Hola a todos')
+    user2.sendMessage('Hola Santiago')
+    user3.sendMessage('Hola Santiago')
+
+}
+
+
+main();
