@@ -77,7 +77,7 @@ class ControlTower {
 
 // Clase Colega - Airplane
 class Airplane {
-  private id: string;
+  private readonly id: string;
   private controlTower: ControlTower;
 
   constructor(id: string, controlTower: ControlTower) {
@@ -117,7 +117,7 @@ class Airplane {
   }
 }
 
-// Código Cliente para probar el patrón Mediator
+// ¡Código Cliente para probar el patrón Mediator
 // ! Aquí no hay nada que modificar en este bloque
 function main(): void {
   const controlTower = new ControlTower();

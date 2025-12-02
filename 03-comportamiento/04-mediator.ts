@@ -54,9 +54,8 @@ const main = () => {
     const user1 = new User('Santiago Reyes',chatroom)
     const user2 = new User('Sebastian Reyes',chatroom)
     const user3 = new User('Daniel Mendoza',chatroom)
-    const user4 = new User('Pepito perez',chatroom)
-    const user5 = new User('Carlos Tobaque',chatroom)
-
+    new User('Pepito perez',chatroom);
+    new User('Carlos Toba que',chatroom);
     user1.sendMessage('Hola a todos')
     user2.sendMessage('Hola Santiago')
     user3.sendMessage('Hola Santiago')
